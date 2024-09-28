@@ -41,7 +41,7 @@ pipeline {
             sh "docker compose --project-name ${BUILD_TAG} down --rmi all --volumes"
             sh 'docker builder prune -f'
             sh 'docker system df'
-            cleanWs()
+//            cleanWs()
         }
     }
 }
