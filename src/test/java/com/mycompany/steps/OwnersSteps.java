@@ -23,9 +23,13 @@ public class OwnersSteps {
     @Given("el cliente abre el navegador")
     public void elClienteAbreElNavegador() {
         ownerPage.open();
+//        ownerPage.waitOnPage();
+
         String currentUrl = ownerPage.getDriver().getCurrentUrl();
         System.out.println("Opening URL: " + currentUrl);
-        Serenity.recordReportData().withTitle("URL Intentando abrir").andContents(currentUrl);
+
+        String pageSource = ownerPage.getDriver().getPageSource();
+        System.out.println("HTML de la página cargada: " + pageSource);
     }
 
     @Given("el cliente navega al menú propietarios")
