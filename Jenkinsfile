@@ -3,7 +3,7 @@ pipeline {
     parameters {
         choice(name: 'ENVIRONMENT', choices: ['dev', 'staging', 'prod'], description: 'Selecciona el entorno')
         choice(name: 'BROSWER', choices: ['chrome', 'edge', 'firefox'], description: 'Selecciona el navegador')
-        string(name: 'TAGS', defaultValue: '@listarPropietarios', description: 'Especifica los tags')
+        string(name: 'TAGS', defaultValue: '', description: 'Dejar vacío para ejecutar todas las pruebas')
     }
     stages {
         stage('Prepare environment') {
@@ -17,19 +17,21 @@ pipeline {
         }
         stage('End2End Tests') {
             steps {
-//                sh 'sleep 10m'
-//                sh "docker run --rm -v ${WORKSPACE}:/usr/src/app -w /usr/src/app --name ${BUILD_TAG} --network ${BUILD_TAG}_default maven:3.8.8-eclipse-temurin-17 sleep 5m"
-                sh "docker run --rm -v ${WORKSPACE}:/usr/src/app -w /usr/src/app  --name ${BUILD_TAG} --network ${BUILD_TAG}_default maven:3.8.8-eclipse-temurin-17 mvn clean verify -B -ntp -Dwebdriver.remote.url=http://${BUILD_TAG}-selenium-hub-1:4444/wd/hub -Dwebdriver.remote.driver=${BROSWER} -Denvironment=${ENVIRONMENT} -Dcucumber.filter.tags=\"${TAGS}\""
-                publishHTML(
-                    target: [
-                        reportName           : 'Serenity Report',
-                        reportDir            : 'target/site/serenity',
-                        reportFiles          : 'index.html',
-                        keepAll              : true,
-                        alwaysLinkToLastBuild: true,
-                        allowMissing         : false
-                    ]
-                )
+                script {
+//                    sh 'sleep 10m'
+//                    sh "docker run --rm -v ${WORKSPACE}:/usr/src/app -w /usr/src/app --name ${BUILD_TAG} --network ${BUILD_TAG}_default maven:3.8.8-eclipse-temurin-17 sleep 5m"
+                    sh "docker run --rm -v ${WORKSPACE}:/usr/src/app -w /usr/src/app  --name ${BUILD_TAG} --network ${BUILD_TAG}_default maven:3.8.8-eclipse-temurin-17 mvn clean verify -Dwebdriver.remote.url=http://${BUILD_TAG}-selenium-hub-1:4444/wd/hub -Dwebdriver.remote.driver=${BROSWER} -Denvironment=${ENVIRONMENT} ${tagsOption}-B -ntp"
+                    publishHTML(
+                        target: [
+                            reportName           : 'Serenity Report',
+                            reportDir            : 'target/site/serenity',
+                            reportFiles          : 'index.html',
+                            keepAll              : true,
+                            alwaysLinkToLastBuild: true,
+                            allowMissing         : false
+                        ]
+                    )
+                }
             }
         }
     }
