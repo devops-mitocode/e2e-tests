@@ -22,7 +22,7 @@ pipeline {
                     sh 'whoami'
 
                     def cucumberFilterTags = TAGS?.trim() ? "-Dcucumber.filter.tags='${TAGS}'" : ""
-                    sh "docker run --rm -u jenkins -v ${WORKSPACE}:/usr/src/app -w /usr/src/app --name ${BUILD_TAG} --network ${BUILD_TAG}_default maven:3.8.8-eclipse-temurin-17 whoami && mvn clean verify -Dwebdriver.remote.url=http://${BUILD_TAG}-selenium-hub-1:4444/wd/hub -Dwebdriver.remote.driver=${BROSWER} -Denvironment=${ENVIRONMENT} ${cucumberFilterTags} -B -ntp"
+                    sh "docker run --rm -v ${WORKSPACE}:/usr/src/app -w /usr/src/app --name ${BUILD_TAG} --network ${BUILD_TAG}_default maven:3.8.8-eclipse-temurin-17 whoami && mvn clean verify -Dwebdriver.remote.url=http://${BUILD_TAG}-selenium-hub-1:4444/wd/hub -Dwebdriver.remote.driver=${BROSWER} -Denvironment=${ENVIRONMENT} ${cucumberFilterTags} -B -ntp"
 //                    sh "docker run --rm -u 0 -v ${WORKSPACE}:/usr/src/app -w /usr/src/app --name ${BUILD_TAG} --network ${BUILD_TAG}_default maven:3.8.8-eclipse-temurin-17 whoami"
 //                    sh 'chmod -R 755 target/site/serenity'
 
