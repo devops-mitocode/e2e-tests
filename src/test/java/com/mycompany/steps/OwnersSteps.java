@@ -8,6 +8,9 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.annotations.Steps;
 import net.serenitybdd.core.Serenity;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.List;
 import java.util.Map;
@@ -22,6 +25,14 @@ public class OwnersSteps {
 
     @Given("el cliente abre el navegador")
     public void elClienteAbreElNavegador() {
+
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--user-agent=ngrok-skip-browser-warning");
+
+        WebDriver driver = new ChromeDriver(options);
+        ownerPage.setDriver(driver);
+
+
         ownerPage.open();
 //        ownerPage.waitOnPage();
 
