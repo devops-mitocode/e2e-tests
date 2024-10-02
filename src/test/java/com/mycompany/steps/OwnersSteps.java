@@ -26,11 +26,11 @@ public class OwnersSteps {
     @Given("el cliente abre el navegador")
     public void elClienteAbreElNavegador() {
 
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--user-agent=ngrok-skip-browser-warning");
-
-        WebDriver driver = new ChromeDriver(options);
-        ownerPage.setDriver(driver);
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--user-agent=ngrok-skip-browser-warning");
+//
+//        WebDriver driver = new ChromeDriver(options);
+//        ownerPage.setDriver(driver);
 
 
         ownerPage.open();
