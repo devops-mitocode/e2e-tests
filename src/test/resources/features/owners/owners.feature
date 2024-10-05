@@ -17,11 +17,11 @@ Feature: Gestionar propietarios
     And el cliente abre el navegador
     And el cliente navega al menú propietarios
     And el cliente selecciona la opción agregar nuevo
-#    And el cliente ingresa los datos del propietario
+    And el cliente ingresa los datos del propietario
 #    And el cliente guarda el propietario
 #    Then la página debe mostrar la información del propietario registrado
     Examples:
       | firstName | lastName | address      | city | telephone |
-#      | John      | Doe      | 1234 Main St | NY   | 123456789 |
+      | John      | Doe      | 1234 Main St | NY   | 123456789 |
 #      | Jane      | Smith    | 5678 Elm St  | LA   | 987654321 |
 #      | Alice     | Johnson  | 9101 Oak St  | SF   | 555555555 |
