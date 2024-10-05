@@ -87,6 +87,8 @@ public class OwnersSteps {
         String firstName = Serenity.sessionVariableCalled("firstName");
         String lastName = Serenity.sessionVariableCalled("lastName");
         String fullName = firstName + " " + lastName;
-        assertEquals(fullName, ownerPage.getFullName());
+        String pageFullName = ownerPage.getFullName();
+        System.out.println("Nombre completo: " + pageFullName);
+        assertEquals(fullName, pageFullName);
     }
 }

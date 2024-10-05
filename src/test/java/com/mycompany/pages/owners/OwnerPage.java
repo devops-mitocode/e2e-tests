@@ -29,8 +29,8 @@ public class OwnerPage extends PageObject {
     @FindBy(css = "#ownersTable > tbody")
     WebElementFacade ownersTable;
 
-    @FindBy(xpath = "/html/body/app-root/div[1]/nav/div/ul/li[2]/ul/li[2]/a")
-    WebElementFacade ownerNewOptionMenu;
+//    @FindBy(xpath = "/html/body/app-root/div[1]/nav/div/ul/li[2]/ul/li[2]/a")
+//    WebElementFacade ownerNewOptionMenu;
 
     // Add owner
     @FindBy(css = "[href=\"/owners/new\"]")
@@ -51,24 +51,23 @@ public class OwnerPage extends PageObject {
     @FindBy(id = "telephone")
     WebElementFacade telephoneField;
 
-    @FindBy(xpath = "/html/body/app-root/div[2]/app-owner-add/div/div/form/div[7]/div/button[2]")
+    @FindBy(xpath = "//*[@id=\"add-owner-form\"]/div[2]/div/button")
     WebElementFacade addOwnerButton;
 
-
-    @Step("Click on the owner menu link")
-    public void clickOnOwnerMenuLink() {
-        ownerMenuLink.waitUntilClickable().click();
-    }
-
-    @Step("Click on the owner option button")
-    public void clickOnOwnerOptionButton() {
-        ownerOptionButton.waitUntilClickable().click();
-    }
-
-    @Step("Get Owners header text")
-    public String getOwnersHeaderText() {
-        return ownersTitle.waitUntilVisible().getText();
-    }
+//    @Step("Click on the owner menu link")
+//    public void clickOnOwnerMenuLink() {
+//        ownerMenuLink.waitUntilClickable().click();
+//    }
+//
+//    @Step("Click on the owner option button")
+//    public void clickOnOwnerOptionButton() {
+//        ownerOptionButton.waitUntilClickable().click();
+//    }
+//
+//    @Step("Get Owners header text")
+//    public String getOwnersHeaderText() {
+//        return ownersTitle.waitUntilVisible().getText();
+//    }
 
 
     @Step("Click on the owner menu")
