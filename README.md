@@ -18,3 +18,8 @@ mvn clean verify
 ```sh
 docker run --rm -v $(pwd):/usr/src/app -w /usr/src/app -e BASE_URI=${BASE_URI} maven:3.8.8-eclipse-temurin-17-alpine mvn clean verify
 ```
+
+## 📦 Configuración en Jenkins
+```sh
+System.setProperty("hudson.model.DirectoryBrowserSupport.CSP", "")
+```
