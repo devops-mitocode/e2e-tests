@@ -33,7 +33,7 @@ public class OwnerPage extends PageObject {
     WebElementFacade ownerNewOptionMenu;
 
     // Add owner
-    @FindBy(xpath = "/html/body/app-root/div[1]/nav/div/ul/li[2]/ul/li[2]/a")
+    @FindBy(css = "[href=\"/owners/new\"]")
     WebElementFacade addOwnerButtonOption;
 
     @FindBy(id = "firstName")
