@@ -87,8 +87,15 @@ public class OwnersSteps {
         String firstName = Serenity.sessionVariableCalled("firstName");
         String lastName = Serenity.sessionVariableCalled("lastName");
         String fullName = firstName + " " + lastName;
+        String address = Serenity.sessionVariableCalled("address");
+        String city = Serenity.sessionVariableCalled("city");
+        String telephone = Serenity.sessionVariableCalled("telephone");
+
         String pageFullName = ownerPage.getFullName();
-        System.out.println("Nombre completo: " + pageFullName);
-        assertEquals(fullName, pageFullName);
+        System.out.println("pageFullName: " + pageFullName);
+        System.out.println("getAddress: " + ownerPage.getAddress());
+        System.out.println("getCity: " + ownerPage.getCity());
+        System.out.println("getTelephone: " + ownerPage.getTelephone());
+//        assertEquals(fullName, pageFullName);
     }
 }

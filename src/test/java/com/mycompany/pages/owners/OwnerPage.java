@@ -54,6 +54,18 @@ public class OwnerPage extends PageObject {
     @FindBy(xpath = "//*[@id=\"add-owner-form\"]/div[2]/div/button")
     WebElementFacade addOwnerButton;
 
+    @FindBy(xpath = "//th[@id='name']/following-sibling::td/strong")
+    WebElementFacade fullNameValue;
+
+    @FindBy(xpath = "//th[@id='address']/following-sibling::td")
+    WebElementFacade addressValue;
+
+    @FindBy(xpath = "//th[@id='city']/following-sibling::td")
+    WebElementFacade cityValue;
+
+    @FindBy(xpath = "//th[@id='telephone']/following-sibling::td")
+    WebElementFacade telephoneValue;
+
 //    @Step("Click on the owner menu link")
 //    public void clickOnOwnerMenuLink() {
 //        ownerMenuLink.waitUntilClickable().click();
@@ -137,17 +149,22 @@ public class OwnerPage extends PageObject {
 
     @Step("Get full name")
     public String getFullName() {
-        System.out.println("isPresent = " + ownersTable.isPresent());
-        System.out.println("isEnabled = " + ownersTable.isEnabled());
-        System.out.println("isDisplayed = " + ownersTable.isDisplayed());
-        System.out.println("isVisible = " + ownersTable.isVisible());
-        System.out.println("getText = " + ownersTable.getText());
-        System.out.println("getTextContent = " + ownersTable.getTextContent());
-        List<WebElementFacade> rows = ownersTable.thenFindAll(By.xpath("./tr"));
-        System.out.println("rows.size() = " + rows.size());
-        WebElementFacade lastRow = rows.get(rows.size()-1);
-        System.out.println("lastRow.getText() = " + lastRow.getText());
-        return lastRow.findElement(By.cssSelector("td a")).getText();
+        return fullNameValue.getText();
+    }
+
+    @Step("Get address")
+    public String getAddress() {
+        return addressValue.getText();
+    }
+
+    @Step("Get city")
+    public String getCity() {
+        return cityValue.getText();
+    }
+
+    @Step("Get telephone")
+    public String getTelephone() {
+        return telephoneValue.getText();
     }
 
 }
