@@ -138,7 +138,9 @@ public class OwnerPage extends PageObject {
     @Step("Get full name")
     public String getFullName() {
         List<WebElementFacade> rows = ownersTable.thenFindAll(By.xpath("./tr"));
+        System.out.println("rows.size() = " + rows.size());
         WebElementFacade lastRow = rows.get(rows.size()-1);
+        System.out.println("lastRow.getText() = " + lastRow.getText());
         return lastRow.findElement(By.cssSelector("td a")).getText();
     }
 
