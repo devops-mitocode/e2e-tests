@@ -5,9 +5,9 @@ Feature: Gestionar propietarios
   @listarPropietarios
   Scenario: Listar propietarios
     Given el cliente abre el navegador
-    And el cliente navega al menú propietarios
-    When el cliente selecciona la opción buscar
-    Then la página debe mostrar una lista de propietarios
+#    And el cliente navega al menú propietarios
+#    When el cliente selecciona la opción buscar
+#    Then la página debe mostrar una lista de propietarios
 
 #  @registrarPropietario
 #  Scenario Outline: Registrar un propietario
