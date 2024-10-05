@@ -23,7 +23,7 @@ public class OwnerPage extends PageObject {
     @FindBy(xpath = "//*[@id=\"main-navbar\"]/ul/li[2]/a")
     WebElementFacade ownerMenu;
 
-    @FindBy(xpath = "/html/body/app-root/div[1]/nav/div/ul/li[2]/ul/li[1]/a")
+    @FindBy(xpath = "//*[@id=\"search-owner-form\"]/div[2]/div/button")
     WebElementFacade ownerSearchOptionMenu;
 
     @FindBy(css = "#ownersTable tbody")
