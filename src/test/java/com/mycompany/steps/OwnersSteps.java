@@ -91,11 +91,9 @@ public class OwnersSteps {
         String city = Serenity.sessionVariableCalled("city");
         String telephone = Serenity.sessionVariableCalled("telephone");
 
-        String pageFullName = ownerPage.getFullName();
-        System.out.println("pageFullName: " + pageFullName);
-        System.out.println("getAddress: " + ownerPage.getAddress());
-        System.out.println("getCity: " + ownerPage.getCity());
-        System.out.println("getTelephone: " + ownerPage.getTelephone());
-//        assertEquals(fullName, pageFullName);
+        assertEquals("El nombre completo no coincide.", fullName, ownerPage.getFullName());
+        assertEquals("La dirección no coincide.", address, ownerPage.getAddress());
+        assertEquals("La ciudad no coincide.", city, ownerPage.getCity());
+        assertEquals("El teléfono no coincide.", telephone, ownerPage.getTelephone());
     }
 }

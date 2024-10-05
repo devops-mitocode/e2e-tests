@@ -149,22 +149,21 @@ public class OwnerPage extends PageObject {
 
     @Step("Get full name")
     public String getFullName() {
-        return fullNameValue.getText();
+        return fullNameValue.waitUntilVisible().getText();
     }
 
     @Step("Get address")
     public String getAddress() {
-        return addressValue.getText();
+        return addressValue.waitUntilVisible().getText();
     }
 
     @Step("Get city")
     public String getCity() {
-        return cityValue.getText();
+        return cityValue.waitUntilVisible().getText();
     }
 
     @Step("Get telephone")
     public String getTelephone() {
         return telephoneValue.getText();
     }
-
 }
