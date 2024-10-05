@@ -137,7 +137,12 @@ public class OwnerPage extends PageObject {
 
     @Step("Get full name")
     public String getFullName() {
-        System.out.println("ownersTable = " + ownersTable);
+        System.out.println("isPresent = " + ownersTable.isPresent());
+        System.out.println("isEnabled = " + ownersTable.isEnabled());
+        System.out.println("isDisplayed = " + ownersTable.isDisplayed());
+        System.out.println("isVisible = " + ownersTable.isVisible());
+        System.out.println("getText = " + ownersTable.getText());
+        System.out.println("getTextContent = " + ownersTable.getTextContent());
         List<WebElementFacade> rows = ownersTable.thenFindAll(By.xpath("./tr"));
         System.out.println("rows.size() = " + rows.size());
         WebElementFacade lastRow = rows.get(rows.size()-1);
