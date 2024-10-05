@@ -26,7 +26,7 @@ public class OwnerPage extends PageObject {
     @FindBy(xpath = "//*[@id=\"search-owner-form\"]/div[2]/div/button")
     WebElementFacade ownerSearchOptionMenu;
 
-    @FindBy(css = "#ownersTable tbody")
+    @FindBy(css = "#ownersTable > tbody")
     WebElementFacade ownersTable;
 
     @FindBy(xpath = "/html/body/app-root/div[1]/nav/div/ul/li[2]/ul/li[2]/a")

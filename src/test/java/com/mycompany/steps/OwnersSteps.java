@@ -25,22 +25,14 @@ public class OwnersSteps {
 
     @Given("el cliente abre el navegador")
     public void elClienteAbreElNavegador() {
-
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--user-agent=ngrok-skip-browser-warning");
-//
-//        WebDriver driver = new ChromeDriver(options);
-//        ownerPage.setDriver(driver);
-
-
         ownerPage.open();
 //        ownerPage.waitOnPage();
 
-        String currentUrl = ownerPage.getDriver().getCurrentUrl();
-        System.out.println("Opening URL: " + currentUrl);
-
-        String pageSource = ownerPage.getDriver().getPageSource();
-        System.out.println("HTML de la página cargada: " + pageSource);
+//        String currentUrl = ownerPage.getDriver().getCurrentUrl();
+//        System.out.println("Opening URL: " + currentUrl);
+//
+//        String pageSource = ownerPage.getDriver().getPageSource();
+//        System.out.println("HTML de la página cargada: " + pageSource);
     }
 
     @Given("el cliente navega al menú propietarios")
@@ -56,6 +48,7 @@ public class OwnersSteps {
     @Then("la página debe mostrar una lista de propietarios")
     public void laPaginaDebeMostrarUnaListaDePropietarios() {
         int rows = ownerPage.getOwnersTable();
+        System.out.println("Número de filas en la tabla: " + rows);
 //        assertEquals(10, rows);
         assertThat(ownerPage.getOwnersTable()).isPositive();
     }
